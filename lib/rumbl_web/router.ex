@@ -42,4 +42,10 @@ defmodule RumblWeb.Router do
       live_dashboard "/dashboard", metrics: RumblWeb.Telemetry
     end
   end
+
+  scope "/manage", RumblWeb do
+    pipe_through [:browser, :authenticate_user]
+
+    resources "/videos", VideoController
+  end
 end
