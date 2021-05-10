@@ -25,7 +25,6 @@ defmodule RumblWeb.ConnCase do
       import RumblWeb.ConnCase
 
       import Rumbl.TestHelpers
- 
 
       alias RumblWeb.Router.Helpers, as: Routes
 

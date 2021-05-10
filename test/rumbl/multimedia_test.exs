@@ -12,8 +12,7 @@ defmodule Rumbl.MultimediaTest do
 
       alpha_names =
         for %Category{name: name} <-
-          Multimedia.list_alhphabetical_categories() do
-
+              Multimedia.list_alhphabetical_categories() do
           name
         end
 
@@ -44,8 +43,7 @@ defmodule Rumbl.MultimediaTest do
     test "create_video/2 with valid data creates a video" do
       owner = user_fixture()
 
-      assert {:ok, %Video{} = video} =
-        Multimedia.create_video(owner, @valid_attrs)
+      assert {:ok, %Video{} = video} = Multimedia.create_video(owner, @valid_attrs)
 
       assert video.description == "desc"
       assert video.title == "title"
@@ -54,15 +52,13 @@ defmodule Rumbl.MultimediaTest do
 
     test "create_video/2 with invalid data returns error changeset" do
       owner = user_fixture()
-      assert {:error, %Ecto.Changeset{}} =
-        Multimedia.create_video(owner, @invalid_attrs)
+      assert {:error, %Ecto.Changeset{}} = Multimedia.create_video(owner, @invalid_attrs)
     end
 
     test "update_video/2 with valid data updates the video" do
       owner = user_fixture()
       video = video_fixture(owner)
-      assert {:ok, video} =
-        Multimedia.update_video(video, %{title: "updated title"})
+      assert {:ok, video} = Multimedia.update_video(video, %{title: "updated title"})
       assert %Video{} = video
       assert video.title == "updated title"
     end
@@ -71,8 +67,7 @@ defmodule Rumbl.MultimediaTest do
       owner = user_fixture()
       %Video{id: id} = video = video_fixture(owner)
 
-      assert {:error, %Ecto.Changeset{}} =
-        Multimedia.update_video(video, @invalid_attrs)
+      assert {:error, %Ecto.Changeset{}} = Multimedia.update_video(video, @invalid_attrs)
 
       assert %Video{id: ^id} = Multimedia.get_video!(id)
     end
@@ -89,8 +84,5 @@ defmodule Rumbl.MultimediaTest do
       video = video_fixture(owner)
       assert %Ecto.Changeset{} = Multimedia.change_video(video)
     end
-
-
   end
-
 end
