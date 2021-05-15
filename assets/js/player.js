@@ -6,7 +6,7 @@ let Player = {
             this.onIframeReady(domId, playerId, onReady)
         }
         let youtubeScriptTag = document.createElement("script")
-        youtubeScriptTag.src = "//wwww.youtube.com/iframe_api"
+        youtubeScriptTag.src = "//www.youtube.com/iframe_api"
         document.head.appendChild(youtubeScriptTag)
     },
     
@@ -25,5 +25,6 @@ let Player = {
     onPlayerStateChange(event) { },
     getCurrentTime() { return Math.floor(this.player.getCurrentTime() * 1000) },
     seekTo(millsec) { return this.player.seekTo(millsec / 1000) }
+ 
 }
 export default Player
