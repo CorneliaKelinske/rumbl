@@ -1,6 +1,7 @@
 defmodule Rumbl.Multimedia.Video do
   use Ecto.Schema
   import Ecto.Changeset
+  @primary_key {:id, Rumbl.Multimedia.Permalink, autogenerate: true}
 
   schema "videos" do
     field :description, :string
@@ -43,4 +44,6 @@ defmodule Rumbl.Multimedia.Video do
     |> String.downcase()
     |> String.replace(~r/[^\w-]+/u, "-")
   end
+
+
 end
