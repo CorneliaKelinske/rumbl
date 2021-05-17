@@ -14,7 +14,7 @@ onReady(videoId, socket){
     let msgContainer = document.getElementById("msg-container")
     let msgInput = document.getElementById("msg-input")
     let postButton = document.getElementById("msg-submit")
-    let vidChannel = socket.channel("videos:" +videoId)
+    let vidChannel = socket.channel("videos:" + videoId)
     // TODO join the vidChannel
   }
 }
