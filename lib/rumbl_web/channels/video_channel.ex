@@ -5,7 +5,7 @@ defmodule RumblWeb.VideoChannel do
     {:ok, socket}
   end
 
-  def handle_info("new_annotation", params, socket) do
+  def handle_in("new_annotation", params, socket) do
     broadcast!(socket, "new_annotation", %{
       user: %{username: "anon"},
       body: params["body"],

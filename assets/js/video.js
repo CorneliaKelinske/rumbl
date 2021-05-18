@@ -46,7 +46,7 @@ onReady(videoId, socket){
       <b>${this.esc(user.username)}</b>: ${this.esc(body)}
     </a>
     `
-    msgContaine.appendChild(template)
+    msgContainer.appendChild(template)
     msgContainer.scrollTop = msgContainer.scrollHeight
   }
 }
