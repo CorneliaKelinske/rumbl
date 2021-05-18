@@ -17,7 +17,7 @@ onReady(videoId, socket){
     let vidChannel = socket.channel("videos:" + videoId)
 
     postButton.addEventListener("click", e => {
-      let payload = {body: msgInput.nodeValue, at: Player.getCurrentTime()}
+      let payload = {body: msgInput.value, at: Player.getCurrentTime()}
       vidChannel.push("new_annotation", payload)
                 .receive("error", e => console.log(e) )
       msgInput.value = ""
@@ -38,14 +38,14 @@ onReady(videoId, socket){
     return div.innerHTML
   },
   
-  renderAnnotation(msgContainer, {user, body, at}) {
+  renderAnnotation(msgContainer, {user, body, at}){
     let template = document.createElement("div")
 
-    template.innerHTML =
+    template.innerHTML = `
     <a href="#" data-seek="${this.esc(at)}">
       <b>${this.esc(user.username)}</b>: ${this.esc(body)}
     </a>
-
+    `
     msgContaine.appendChild(template)
     msgContainer.scrollTop = msgContainer.scrollHeight
   }
