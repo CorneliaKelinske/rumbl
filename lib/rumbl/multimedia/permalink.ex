@@ -25,5 +25,4 @@ defmodule Rumbl.Multimedia.Permalink do
   def load(integer) when is_integer(integer) do
     {:ok, integer}
   end
-
 end

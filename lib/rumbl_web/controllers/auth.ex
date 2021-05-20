@@ -14,7 +14,7 @@ defmodule RumblWeb.Auth do
         put_current_user(conn, user)
 
       user = user_id && Rumbl.Accounts.get_user(user_id) ->
-       put_current_user(conn, user)
+        put_current_user(conn, user)
 
       true ->
         assign(conn, :current_user, nil)

@@ -17,8 +17,7 @@ defmodule RumblWeb.VideoChannel do
     {:ok, %{annotations: annotations}, assign(socket, :video_id, video_id)}
   end
 
-
-    def handle_in(event, params, socket) do
+  def handle_in(event, params, socket) do
     user = Accounts.get_user!(socket.assigns.user_id)
     handle_in(event, params, user, socket)
   end
@@ -32,19 +31,24 @@ defmodule RumblWeb.VideoChannel do
           body: annotation.body,
           at: annotation.at
         })
+
         {:reply, :ok, socket}
 
       {:error, changeset} ->
         {:reply, {:error, %{errors: changeset}}, socket}
-      end
+    end
   end
 
   def handle_info(:after_join, socket) do
     push(socket, "presence_state", RumblWeb.Presence.list(socket))
-    {:ok, _} = RumblWeb.Presence.track(
-      socket,
-      socket.assigns.user_id,
-      %{device: "browser"})
+
+    {:ok, _} =
+      RumblWeb.Presence.track(
+        socket,
+        socket.assigns.user_id,
+        %{device: "browser"}
+      )
+
     {:noreply, socket}
   end
 end

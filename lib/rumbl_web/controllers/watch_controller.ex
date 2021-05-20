@@ -7,7 +7,4 @@ defmodule RumblWeb.WatchController do
     video = Multimedia.get_video!(id)
     render(conn, "show.html", video: video)
   end
-
-
-
 end

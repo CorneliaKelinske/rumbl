@@ -49,6 +49,4 @@ defmodule RumblWeb.Router do
 
     resources "/videos", VideoController
   end
-
-
 end

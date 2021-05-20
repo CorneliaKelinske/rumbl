@@ -46,6 +46,4 @@ defmodule Rumbl.Multimedia.Video do
     |> String.downcase()
     |> String.replace(~r/[^\w-]+/u, "-")
   end
-
-
 end
